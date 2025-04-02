@@ -1,45 +1,118 @@
-# CHANGES.md
+# Full Stack Developer Technical Assessment
 
-Here’s what I changed in the todo app:
+This is a Next.js project bootstrapped with `create-next-app`. You'll be building a complete Todo application to demonstrate your full stack development skills.
 
-### TodoList Component (`TodoList.js`)
-- **What Changed**: The delete button used `todo.id` before, now it uses `todo._id`.
-- **Why**: The old app used a number ID (`id`), but now we use MongoDB, which gives todos a special ID called `_id`.
+## Assessment Overview
 
-### Home Page (`Home.js`)
-- **What Changed**: 
-  - Changed `id` to `_id` in `toggleTodoStatus`, `deleteTodo`, and `updateTodo`.
-  - Added a "Are you sure?" popup before deleting.
-  - Added a little message (notification) that shows for 3 seconds when you add, update, or delete a todo.
-- **Why**: 
-  - Switched to `_id` because we use MongoDB now, not a simple list.
-  - Added the popup so you don’t delete by accident.
-  - Added messages so you know what’s happening (like "Todo added!").
+In this technical assessment, you will implement a fully functional Todo application with CRUD operations. This project will test your abilities across the entire stack:
 
-### Todos API - List and Add (`todos/index.js`)
-- **What Changed**: 
-  - Old code kept todos in a list in memory with `id`.
-  - New code uses MongoDB and gives todos `_id`.
-- **Why**: The old way was fake for testing. Now we use a real database (MongoDB) to save todos.
+- **Frontend**: React components, state management, UI/UX design
+- **Backend**: API routes, data handling
+- **Integration**: Connecting frontend and backend seamlessly
 
-### Todos API - Get, Update, Delete (`todos/[id].js`)
-- **What Changed**: 
-  - Old code checked a memory list with `id`.
-  - New code uses MongoDB with `_id`.
-- **Why**: We switched from a fake list to MongoDB, so we use `_id` now.
+## Requirements
 
-### MongoDB Connection (`lib/mongodb.js`)
-- **What Changed**: Added this new file.
-- **What It Does**: Connects the app to MongoDB.
-- **Why**: We need it to talk to MongoDB since we don’t use a fake list anymore.
+### Core Features
 
-### Environment File (`.env.local`)
-- **What Changed**: Added this new file.
-- **What It Does**: Holds the MongoDB address (like a link and password).
-- **Why**: The app needs to know where MongoDB is to connect.
+Your Todo application must implement:
 
-### Big Picture
-- **Old Way**: The app used a pretend list in memory with `id`.
-- **New Way**: The app uses MongoDB with `_id` to save todos for real.
-- **Why**: To make the app better with a real database and add nice things like messages and delete checks.
+1. Create - Add new todos with title and description
+2. Read - Display a list of all todos
+3. Update - Edit existing todos (title, description, completion status)
+4. Delete - Remove todos from the list
+5. Toggle Status - Mark todos as complete/incomplete
 
+### Technical Requirements
+
+#### Frontend
+- Implement responsive React components
+- Create forms for adding and editing todos
+- Handle loading, error, and empty states
+- Implement proper state management
+
+#### Backend
+- Create API routes for all CRUD operations
+- Implement proper error handling
+- For this assessment, use in-memory storage (the structure is provided)
+
+#### Code Quality
+- Write clean, maintainable code
+- Add appropriate comments
+- Follow best practices for component structure
+- Implement proper validation and error handling
+
+## Getting Started
+
+1. Clone or download this repository:
+   ```bash
+   assessment
+   ```
+
+2. Install dependencies:
+   ```bash
+   npminstall
+   ```
+
+3. Run the development server:
+   ```bash
+   npm rundev
+   ```
+
+4. Open http://localhost:3000 with your browser to see the starter template.
+
+## Project Structure
+
+The codebase is structured as follows:
+
+- `/pages` - Contains Next.js pages and API routes
+  - `/api/todos` - API endpoints for todo operations
+  - `/index.js` - Main application page
+- `/components` - React components for the Todo application
+- `/styles` - CSS modules for styling
+
+## Tasks to Complete
+
+You'll need to implement code in the following files (look for comments with "TODO" instructions):
+
+### API Routes:
+- `pages/api/todos/index.js` - Implement GET (list all) and POST (create) endpoints
+- `pages/api/todos/[id].js` - Implement GET (single), PUT (update), and DELETE endpoints
+
+### React Components:
+- `pages/index.js` - Main page with state management and API calls
+- `components/TodoList.js` - Display todos and handle interactions
+- `components/AddTodoForm.js` - Form for creating new todos
+- `components/EditTodoModal.js` - Modal for editing todos
+
+## Tips for Success
+
+- Read the entire codebase before starting to understand how components interact
+- Pay attention to the comments for guidance on what needs to be implemented
+- Test thoroughly - ensure all features work as expected
+- Error handling is crucial - handle network errors, validation, etc.
+- UI/UX matters - create a pleasant user experience
+
+## Evaluation Criteria
+
+Your submission will be evaluated based on:
+
+1. Functionality - Does the application work as specified?
+2. Code Quality - Is the code clean, well-structured, and maintainable?
+3. Error Handling - How well does the application handle errors?
+4. UI/UX Design - Is the interface intuitive and responsive?
+5. Problem Solving - How did you approach and solve the challenges?
+
+## Submission
+
+When you've completed the assessment:
+
+- Ensure all code is working properly
+- Provide a brief write-up of your implementation decisions
+- Package your solution as directed by your hiring manager
+- Include any setup instructions if you've added dependencies
+
+## Time Expectation
+
+You should aim to complete this assessment within 3-4 hours. Focus on core functionality first, then polish if time permits.
+
+Good luck! We're excited to see what you build.
